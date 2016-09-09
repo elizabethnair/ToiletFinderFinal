@@ -19,7 +19,7 @@ window.initMap = function() {
 
 		console.log( myLat, myLng );
 
-		let APIRequest = "http://www.refugerestrooms.org:80/api/v1/restrooms/by_location.json?lat=" + myLat + "&lng=" + myLng;
+		let APIRequest = "//www.refugerestrooms.org:80/api/v1/restrooms/by_location.json?lat=" + myLat + "&lng=" + myLng;
 
 
 		// Create a map object and specify the DOM element for display.
