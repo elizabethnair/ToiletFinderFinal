@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
+
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body id="my-theme">
+        <div id="ip"></div>
+        <div id="address"></div>
+
+<!--         <div class="js-page-1">
+            <div class="ui two column centered grid v-centered-content"">
+                <div class="column">
+                        <h1 class="">Toilet Finder</h1>
+                        <button class="ui primary button fluid bottom-space">
+                            Current Location
+                        </button>
+                         <div class="ui horizontal divider">Or</div>
+                        <button class="ui button fluid js-search">
+                            Search
+                        </button>
+                        <div class="js-searchfield hide">
+                            asdfasdf
+                        </div>
+        </div> -->
+
+                <div class="js-page-2 ui grid container">
+                    <div class="four wide column border">
+                        <h1>Toilet Finder</h1>
+                        <div>
+                            <h4>Address: ____ </h4>
+<!--                                 <h5 class= "right-text" link="">Change</h5>
+-->                            </div>
+                        <h2>Toilets Near You</h2>
+                        <div class="listing clearfix">
+                            <img class="toilet-image" src="#">
+                            <div class="listing-text">
+                                <h4>Building</h4>
+                                <p class="sub-heading-1">Location</p>
+                                <p>Dist</p>
+                                <p>Disable Friendly</p>                   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="twelve wide column border">
+                        <p>Map</p>
+                        <div class="map" id="map"></div>
+                    </div>
+                </div>
+
+            </div><!-- column -->
+        </div><!--ui two column centered grid  -->
+        <script type="text/javascript" src="javascript/jQuery.js"></script>
+        <script type="text/javascript" src="javascript/main.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgT00HqmK1WQzEUeclV2I5-HY6yuvskg4&callback=initMap"
+    async defer></script>
+    </body>
+</html>
