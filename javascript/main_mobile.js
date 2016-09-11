@@ -149,7 +149,7 @@ function getUserLocation() {
 		function success(position) {
 
 			var lat = position.coords.latitude;
-			var long = position.coords.longitude;a
+			var long = position.coords.longitude;
 			console.log('success');
 			resolve({ lat: lat, long: long });
 		} // success!
