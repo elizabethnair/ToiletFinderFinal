@@ -78,7 +78,7 @@ window.initMap = function() {
 		    	directions = currentToilet.directions;
 		    }
 
-		    $listing.append($(`<div class="listing-text ui card toilet-card">
+		    $listing.append($(`<div class="listing-text ui card toilet-card toilet-card-${i}">
                 <div class="content">
                     <h4 class="header">${currentToilet.name}</h4>
                     <p class="meta">${currentToilet.street}</p>
@@ -86,13 +86,65 @@ window.initMap = function() {
                 </div>                
             </div>`));
 
+            $(`.toilet-card-${i}`).on('click', function() {
+			    marker.setAnimation(google.maps.Animation.BOUNCE);
+			    setTimeout(function() {
+			    	marker.setAnimation(null);
+			    }, 1200);
+            })
+
+
+
 		    console.log( currentToilet );
 		  }
+
+		  $listing.slick({
+		  	  infinite: true,
+			  slidesToShow: 1,
+			  slidesToScroll: 1,
+			  dots: true,
+			  speed: 300,
+			  // adaptiveHeight: true
+		  });
+		  
 		});
 
 	});
-	// addMarker('usa');
+
 }
+
+	 
+	// $('.responsive').slick({
+	//   dots: true,
+	//   infinite: true,
+	//   slidesToShow: 4,
+	//   slidesToScroll: 4,
+	//   responsive: [
+	//     {
+	//       breakpoint: 1024,
+	//       settings: {
+	//         slidesToShow: 3,
+	//         slidesToScroll: 3,
+	//         infinite: true,
+	//         dots: true
+	//       }
+	//     },
+	//     {
+	//       breakpoint: 600,
+	//       settings: {
+	//         slidesToShow: 2,
+	//         slidesToScroll: 2
+	//       }
+	//     },
+	//     {
+	//       breakpoint: 480,
+	//       settings: {
+	//         slidesToShow: 1,
+	//         slidesToScroll: 1
+	//       }
+	//   ]
+	// });
+
 
 
 
@@ -127,14 +179,3 @@ console.log('err')
 }
 
 
-// $(document).ready(function(){
-//   $('.your-class').slick({
-//     setting-name: setting-value
-//   });
-// });
-
-// $('.multiple-items').slick({
-//   infinite: true,
-//   slidesToShow: 3,
-//   slidesToScroll: 3
-// });
