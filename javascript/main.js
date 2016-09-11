@@ -19,7 +19,7 @@ window.initMap = function() {
 
 		console.log( myLat, myLng );
 
-		let APIRequest = "//www.refugerestrooms.org:80/api/v1/restrooms/by_location.json?lat=" + myLat + "&lng=" + myLng;
+		let APIRequest = "https://refugerestrooms.webscript.io/api/v1/restrooms/by_location.json?lat=" + myLat + "&lng=" + myLng;
 
 
 		// Create a map object and specify the DOM element for display.
@@ -39,7 +39,13 @@ window.initMap = function() {
 		  let myData = data;
 		  let currentlyOpenWin = null;
 
-		  for( let i = 0; i < myData.length; i = i + 1 ) {
+		  if ( myData ) {
+		  	myData = JSON.parse( myData );
+		  }
+
+		  const $listing = $('.js-listing');
+
+		  for( let i = 0; i < myData.length; i++ ) {
 		  	const currentToilet = myData[ i ];
 		  	console.log( currentToilet );
 		  	const marker = new google.maps.Marker({
@@ -51,7 +57,7 @@ window.initMap = function() {
 		        title: currentToilet.name
 		    })
 
-			const infowin = new google.maps.InfoWindow({
+			const infoWin = new google.maps.InfoWindow({
 		        content: `<div>
 		        	<strong>${currentToilet.name}</strong>
 		        </div>`
@@ -62,10 +68,25 @@ window.initMap = function() {
 		    		currentlyOpenWin.close();
 		    	}
 
-		        infowin.open(map, marker);
+		        infoWin.open(map, marker);
 
-		        currentlyOpenWin = infowin;
+		        currentlyOpenWin = infoWin;
 		    });
+
+		    let directions = "";
+		    if (currentToilet.directions !== null) {
+		    	directions = currentToilet.directions;
+		    }
+
+		    $listing.append($(`<div class="listing-text ui card toilet-card">
+                <div class="content">
+                    <h4 class="header">${currentToilet.name}</h4>
+                    <p class="meta">${currentToilet.street}</p>
+                    <p class="description">${directions}</p>  
+                </div>                
+            </div>`));
+
+		    console.log( currentToilet );
 		  }
 		});
 
@@ -105,3 +126,15 @@ console.log('err')
 	});
 }
 
+
+// $(document).ready(function(){
+//   $('.your-class').slick({
+//     setting-name: setting-value
+//   });
+// });
+
+// $('.multiple-items').slick({
+//   infinite: true,
+//   slidesToShow: 3,
+//   slidesToScroll: 3
+// });

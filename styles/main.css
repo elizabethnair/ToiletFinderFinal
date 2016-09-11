@@ -1,3 +1,6 @@
+html {
+	height: auto;
+}
 #my-theme .black-text {
 	color: black;
 }
@@ -34,10 +37,6 @@
 	text-align: right;
 }
 
-.toilet-image {
-	width: 50px;
-	height: 50px;
-	float: left;
 }
 .listing-text {
 	float: left;
@@ -45,6 +44,22 @@
 }
 
 .map {
-	height: 80%;
 	width: 100%;
+	min-height: 500px;
+}
+
+#my-theme .toilet-card {
+	border: 8px blue;
+	padding: 5px;
+	
+}
+
+#my-theme .standardFont {
+	font-family: 'Josefin Sans', sans-serif;
+	text-align: left;
+}
+
+.toilet-info {
+	display: inline-flex;
+	align-content: space-around;
 }
