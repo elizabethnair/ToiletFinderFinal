@@ -7,9 +7,10 @@
 
 
 
-
+alert(-1)
 
 window.initMap = function() {
+	alert(-2)
 	// ***** VARIABLES ***** //
 	let markers = [];
 
