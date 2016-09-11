@@ -14,6 +14,7 @@ window.initMap = function() {
 	let markers = [];
 
 	getUserLocation().then(function(latLng) {
+		alert(5)
 		const myLat = latLng.lat;
 		const myLng = latLng.long;
 
@@ -106,7 +107,7 @@ window.initMap = function() {
 			  speed: 300,
 			  // adaptiveHeight: true
 		  });
-		  
+
 		});
 
 	});
@@ -155,10 +156,13 @@ function grabToiletData(URL){
 }
 
 function getUserLocation(){
+	alert(0)
 	return new Promise(( resolve, reject ) => {
+		alert(1)
 		navigator.geolocation.getCurrentPosition(success, err);
 
 		function success(position) {
+			alert(2)
 		     var lat = position.coords.latitude;
 		     var long = position.coords.longitude;
 console.log('success')
@@ -166,6 +170,7 @@ console.log('success')
 		} // success!
 
 		function err() {
+			alert(3)
 			const myLat = 40.7371449;
 			const myLng = -73.9907287;
 console.log('err')
@@ -173,6 +178,7 @@ console.log('err')
 		}
 
 		setTimeout(function() {
+			alert(4)
 			err();
 		}, 15000);
 	});
